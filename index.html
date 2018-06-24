@@ -1,1 +1,56 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test2</title>
+	<meta name="generator" content="BBEdit 12.1" />
+	<style type="text/css">
+		input { font-size:14; font-family: tahoma; }
+		button { font-size: 14px; font-family: tahoma; }
+
+	</style>
+	<script>
+	function copyToClipboard(el) {
+
+    // resolve the element
+    el = (typeof el === 'string') ? document.querySelector(el) : el;
+
+    // handle iOS as a special case
+    if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+
+        // save current contentEditable/readOnly status
+        var editable = el.contentEditable;
+        var readOnly = el.readOnly;
+
+        // convert to editable with readonly to stop iOS keyboard opening
+        el.contentEditable = true;
+        el.readOnly = true;
+
+        // create a selectable range
+        var range = document.createRange();
+        range.selectNodeContents(el);
+
+        // select the range
+        var selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        el.setSelectionRange(0, 999999);
+
+        // restore contentEditable/readOnly to original state
+        el.contentEditable = editable;
+        el.readOnly = readOnly;
+    }
+    else {
+        el.select();
+    }
+
+    // execute copy command
+    document.execCommand('copy');
+}
+	</script>
+</head>
+<body>
+
+<input class="important-message" type="text" value="Hello World" />
+<button onclick="copyToClipboard('.important-message')">Copy</button>
+</body>
+</html>
