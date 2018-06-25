@@ -5,7 +5,7 @@
 	<meta name="generator" content="BBEdit 12.1" />
 	<style type="text/css">
 		input { font-size:34px; font-family: tahoma; }
-		button { font-size: 34px; font-family: tahoma; }
+		button { font-size: 34px; font-family: tahoma;  top:  50%; left: 50%; position: fixed;}
 
 	</style>
 	<script>
@@ -22,7 +22,10 @@
 	var btn = document.getElementById("cpybtn");
     btn.style.backgroundColor = "#5775A9";
 	
-	
+	var url_string = window.location.href
+	var url = new URL(url_string);
+	var c = url.searchParams.get("b");
+	console.log("c = " + c);
 	var textArea = document.createElement("textarea");
 	
 	//textArea.style.position = 'fixed';
@@ -46,7 +49,7 @@
 	textArea.style.background = 'transparent';
 
 
-	textArea.value = text;
+	textArea.value = c;
 	
 	document.body.appendChild(textArea);
 	
@@ -138,7 +141,7 @@
 
 <!--<input id="temp" class="important-message" type="text" value="Hello World11" />
 <button id="cpybtn" onclick="copyToClipboard('.important-message')">Copy</button>-->
-<button id="cpybtn" onclick="copyToClipboard('Hello World20')">Copy</button>
+<button id="cpybtn" onclick="copyToClipboard('http://staging.mobilerl.com:62089/api/')">Download Spotter</button>
 <script>
 /*
 (function() {
