@@ -18,6 +18,11 @@
     
     	//alert ("clicked");
     	
+    	
+	var btn = document.getElementById("cpybtn");
+    btn.style.backgroundColor = "#5775A9";
+	
+	
 	var textArea = document.createElement("textarea");
 	
 	textArea.style.position = 'fixed';
@@ -81,8 +86,7 @@
        textArea.select();
     }
    
-    var btn = document.getElementById("cpybtn");
-    btn.style.backgroundColor = "#5775A9";
+   
 
     // execute copy command
    
@@ -108,7 +112,6 @@
     });
     */
 
-document.addEventListener('DOMContentLoaded', fn, false);
 
 /*
  window.onload  = function(e) {
@@ -133,7 +136,7 @@ document.addEventListener('DOMContentLoaded', fn, false);
 
 <!--<input id="temp" class="important-message" type="text" value="Hello World11" />
 <button id="cpybtn" onclick="copyToClipboard('.important-message')">Copy</button>-->
-<button id="cpybtn" onclick="copyToClipboard('Hello World16')">Copy</button>
+<button id="cpybtn" onclick="copyToClipboard('Hello World17')">Copy</button>
 <script>
 /*
 (function() {
