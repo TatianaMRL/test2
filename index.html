@@ -9,42 +9,76 @@
 
 	</style>
 	<script>
-	function copyToClipboard(el) {
+	function copyToClipboard(/*el*/ text ) {
 
     // resolve the element
-    el = (typeof el === 'string') ? document.querySelector(el) : el;
+   // el = (typeof el === 'string') ? document.querySelector(el) : el;
 
     // handle iOS as a special case
     
     	//alert ("clicked");
-   if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+    	
+	var textArea = document.createElement("textarea");
+	
+	textArea.style.position = 'fixed';
+	textArea.style.top = 0;
+	textArea.style.left = 0;
+
+	// Ensure it has a small width and height. Setting to 1px / 1em
+	// doesn't work as this gives a negative w/h on some browsers.
+	textArea.style.width = '2em';
+	textArea.style.height = '2em';
+
+	// We don't need padding, reducing the size if it does flash render.
+	textArea.style.padding = 0;
+
+	// Clean up any borders.
+	textArea.style.border = 'none';
+	textArea.style.outline = 'none';
+	textArea.style.boxShadow = 'none';
+
+	// Avoid flash of white box if rendered for any reason.
+	textArea.style.background = 'transparent';
+
+
+	textArea.value = text;
+	
+	document.body.appendChild(textArea);
+	
+    if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
 
         // save current contentEditable/readOnly status
+        
+        
+		
+
+        
         var editable = el.contentEditable;
         var readOnly = el.readOnly;
 
         // convert to editable with readonly to stop iOS keyboard opening
-        el.contentEditable = true;
-        el.readOnly = true;
+        textArea.contentEditable = true;
+        textArea.readOnly = true;
 
         // create a selectable range
         var range = document.createRange();
-        range.selectNodeContents(el);
+        range.selectNodeContents( textArea);
 
         // select the range
         var selection = window.getSelection();
         selection.removeAllRanges();
         selection.addRange(range);
-        el.setSelectionRange(0, 999999);
+         textArea.setSelectionRange(0, 999999);
 
         // restore contentEditable/readOnly to original state
-        el.contentEditable = editable;
-        el.readOnly = readOnly;
+         textArea.contentEditable = editable;
+         textArea.readOnly = readOnly;
     }
   
     else {
     	//alert ("selected");
-        el.select();
+    	textArea.focus();
+       textArea.select();
     }
    
     var btn = document.getElementById("cpybtn");
@@ -54,7 +88,9 @@
    
     //setTimeout(function() {
     document.execCommand('copy');
-    el.blur();
+    //textArea.blur();
+    
+    document.body.removeChild(textArea);
     
     //} , 1000);
    
@@ -95,8 +131,9 @@ document.addEventListener('DOMContentLoaded', fn, false);
 </head>
 <body>
 
-<input id="temp" class="important-message" type="text" value="Hello World11" />
-<button id="cpybtn" onclick="copyToClipboard('.important-message')">Copy</button>
+<!--<input id="temp" class="important-message" type="text" value="Hello World11" />
+<button id="cpybtn" onclick="copyToClipboard('.important-message')">Copy</button>-->
+<button id="cpybtn" onclick="copyToClipboard('Hello World16')">Copy</button>
 <script>
 /*
 (function() {
