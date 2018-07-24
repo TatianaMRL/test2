@@ -8,7 +8,7 @@
 
 	</style>
 	<script>
-	function copyToClipboard(/*el*/ text ) {
+	function copyToClipboard() {
 
     // resolve the element
    // el = (typeof el === 'string') ? document.querySelector(el) : el;
@@ -145,27 +145,34 @@
 </head>
 <body>
 
-<!--<input id="temp" class="important-message" type="text" value="Hello World11" />
-<button id="cpybtn" onclick="copyToClipboard('.important-message')">Copy</button>-->
-<button id="cpybtn" onclick="copyToClipboard('http://staging.mobilerl.com:62089/api/')">Download Spotter</button>
-<script>
-/*
-(function() {
-   // your page initialization code here
-   // the DOM will be available here
-                //setTimeout(function() { 
-                var btn = document.getElementById("cpybtn");
-                //btn.click();
-                //var el = document.getElementById("temp");
-                btn.click();
-               
-                //copyToClipboard('.important-message');
-                // alert ("el =" + el.value);                
-                
-                // }, 5000);
-
-})();
-*/
-</script>
+    </br>
+    </br></br>
+    <div style="text-align:center">
+        <div style="display: inline-block ; text-align:center">
+            <div style="vertical-align:middle; text-align:center; display: inline">
+                <img src="apple.png" alt="ios logo" height="100" width="100" style="margin-left:0px ; vertical-align:middle">
+                <span style="font-size:3em ; margin-left: 50px ; vertical-align:middle">
+                    <a href="javascript:copyToClipboard()">
+                        Install Spotter on iOS
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div style="display: inline-block ; text-align:center">
+            <div style="vertical-align:middle; text-align:center; display: inline">
+                <img src="android.png" alt="Android logo" height="100" width="100" style="margin-left:0px ; vertical-align:middle">
+                <span style="font-size:3em ; margin-left: 50px ; vertical-align:middle">
+                    <a href="javascript()">
+                        Install Spotter on Android
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div id="hidden" style="margin-top:150px ; font-size:3em; display:none">
+            <span>After click on Install, please launch Spotter app from Home Screen</span>
+        </div>
+    </div>
 </body>
+
+
 </html>
