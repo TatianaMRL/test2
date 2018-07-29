@@ -27,7 +27,7 @@
 
 
 	var url = new URL(url_string);
-	var c = url.searchParams.get("b");
+	var c = url.searchParams.get("url");
 	console.log("c = " + c);
 	var textArea = document.createElement("textarea");
 	
@@ -52,9 +52,9 @@
 	textArea.style.background = 'transparent';
 
 
-	//textArea.value = c;
+	textArea.value = c;
 
-    textArea.value = url_string;
+    //textArea.value = url_string;
 	
 	document.body.appendChild(textArea);
 	
@@ -111,10 +111,7 @@
 
     
     //} , 1000);
-   
-   
   
-    
 }
 /*
  document.addEventListener('DOMContentLoaded', function () {
