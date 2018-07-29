@@ -1,0 +1,10 @@
+{
+
+    "applinks": {
+                "apps": [],
+                "details": [{
+                    "appID": "1409358123.com.mrl.fox.pdm",
+                    "paths": ["*"]
+                }]
+            }
+}
